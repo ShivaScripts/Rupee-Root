@@ -20,25 +20,40 @@
 
 ![Dashboard Screenshot](docs/screenshots/dashboard.png)
 
+
+![Dashboard Screenshot](docs/screenshots/dashboard1.png)
+
+
+![Dashboard Screenshot](docs/screenshots/dashboard2.png)
+
 ### 🧠 Algorithmic Debt Settlement
 Solves the "Who owes whom" problem efficiently.
 * **Greedy Algorithm Implementation:** Utilizes a custom **Min-Cash-Flow Algorithm** to simplify a complex graph of debts into the minimum number of transactions required.
 * **Graph Optimization:** Reduces `N*(N-1)` potential transactions to `N-1` in the best-case scenario, significantly optimizing settlement cycles for large groups.
 
-![Debt Settlement Screenshot](docs/screenshots/debt-settlement.png)
+![Debt Settlement Screenshot](docs/screenshots/settlement.png)
 
 ### ⚡ Real-Time Collaboration (WebSocket)
 * **Event-Driven Architecture:** Implemented **STOMP over WebSockets** to facilitate instant group communication.
 * **Persistent Chat History:** Unlike ephemeral socket connections, the **ChatController** intercepts messages, persists them to MySQL for audit trails, and then broadcasts to subscribed clients via `/topic` destinations.
 * **Group Invitations:** Integrated **JavaMailSender** for asynchronous email dispatch of unique group join codes.
 
-![Group Chat Screenshot](docs/screenshots/group-chat.png)
+![Group Chat Screenshot](docs/screenshots/recentactivity.png)
+
+![Group Chat Screenshot](docs/screenshots/chat.png)
+
+![Group Chat Screenshot](docs/screenshots/groupinvitations.png)
+
+![Group Chat Screenshot](docs/screenshots/invitationmail.png)
+
 
 ### 🛠 Advanced Simulation & Reporting
 * **"What-If" Financial Simulator:** A forecasting tool that projects future savings based on user-defined variables (Monthly Investment, Inflation Rate, ROI) using compound interest logic.
 * **Automated Reporting:** Generates and exports financial statements in `.xlsx` format using **Apache POI**, enabling offline accounting and data portability.
+* 
+![Calculator Screenshot](docs/screenshots/whatif.png)
 
-![Calculator Screenshot](docs/screenshots/calculator.png)
+![Calculator Screenshot](docs/screenshots/excel.png)
 
 ### 🛡️ Security & Observability
 * **Stateless Authentication:** Secured via **JWT (JSON Web Tokens)** with a custom `JwtRequestFilter` intercepting every request for validity.
