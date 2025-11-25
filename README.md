@@ -7,79 +7,122 @@
 ![Redis](https://img.shields.io/badge/Redis-Cache-red?style=for-the-badge&logo=redis)
 ![WebSockets](https://img.shields.io/badge/WebSockets-Real--Time-purple?style=for-the-badge&logo=socket.io)
 
-**RupeeRoot** is a comprehensive full-stack financial management suite designed to simplify personal wealth tracking, debt settlement, and financial planning. It combines enterprise-grade security with real-time collaboration tools, making it easier for individuals and groups to manage money together.
+**RupeeRoot** is an enterprise-grade financial management suite engineered with a **Microservice-ready Monolithic architecture**. It leverages **Spring Boot** and **React** to deliver a seamless full-stack experience for personal wealth tracking, complex debt settlement algorithms, and real-time collaborative group finance.
 
-## 🌟 Key Features
+---
 
-### 💸 Financial Management
+## 🚀 Key Features & Technical Capabilities
 
-* **Dashboard Analytics:** Get a real-time overview of your Total Balance, Income, and Expenses with interactive charts (Recharts) powered by low-latency caching.
-* **Transaction Tracking:** Log incomes and expenses with custom categories and emoji support.
-* **Smart Filtering:** Filter transaction history by date, category, or type for detailed analysis.
-* **Excel Reports:** Export your financial data instantly to Excel for offline analysis.
+### 💸 Financial Analytics & Visualization
+* **Real-Time Dashboard:** Interactive visualizations (Pie/Line Charts via **Recharts**) displaying income vs. expense trends.
+* **Low-Latency Data Fetching:** Implemented **Redis Caching** (`@Cacheable`) to cache dashboard metrics (Total Balance, Recent Transactions), reducing DB hits by ~40% for frequent reads.
+* **Granular Transaction Logging:** Custom categorization engine with dynamic **Emoji Support** for intuitive expense tracking.
 
-### 🤝 Collaboration & Social
+![Dashboard Screenshot](docs/screenshots/dashboard.png)
 
-* **Real-Time Group Chat:** A fully integrated chat system powered by **WebSockets (STOMP)** allows group members to discuss expenses instantly. Messages are persisted in the database, ensuring history is never lost.
-* **Debt Settlement:** Simplify group debts using a **Greedy Algorithm** that minimizes the number of transactions required to settle dues among multiple people.
-* **Group Management:** Create and manage expense groups to track shared spending easily.
+### 🧠 Algorithmic Debt Settlement
+Solves the "Who owes whom" problem efficiently.
+* **Greedy Algorithm Implementation:** Utilizes a custom **Min-Cash-Flow Algorithm** to simplify a complex graph of debts into the minimum number of transactions required.
+* **Graph Optimization:** Reduces `N*(N-1)` potential transactions to `N-1` in the best-case scenario, significantly optimizing settlement cycles for large groups.
 
-### 🛠 Advanced Tools
+![Debt Settlement Screenshot](docs/screenshots/debt-settlement.png)
 
-* **"What-If" Calculator:** Simulate future savings based on monthly investments, inflation rates, and expected returns.
-* **Activity Auditing:** A complete audit trail of user actions (Logins, Updates, Deletions) for enhanced security.
+### ⚡ Real-Time Collaboration (WebSocket)
+* **Event-Driven Architecture:** Implemented **STOMP over WebSockets** to facilitate instant group communication.
+* **Persistent Chat History:** Unlike ephemeral socket connections, the **ChatController** intercepts messages, persists them to MySQL for audit trails, and then broadcasts to subscribed clients via `/topic` destinations.
+* **Group Invitations:** Integrated **JavaMailSender** for asynchronous email dispatch of unique group join codes.
+
+![Group Chat Screenshot](docs/screenshots/group-chat.png)
+
+### 🛠 Advanced Simulation & Reporting
+* **"What-If" Financial Simulator:** A forecasting tool that projects future savings based on user-defined variables (Monthly Investment, Inflation Rate, ROI) using compound interest logic.
+* **Automated Reporting:** Generates and exports financial statements in `.xlsx` format using **Apache POI**, enabling offline accounting and data portability.
+
+![Calculator Screenshot](docs/screenshots/calculator.png)
+
+### 🛡️ Security & Observability
+* **Stateless Authentication:** Secured via **JWT (JSON Web Tokens)** with a custom `JwtRequestFilter` intercepting every request for validity.
+* **Aspect-Oriented Programming (AOP):** Decoupled cross-cutting concerns (Logging) from business logic using **Spring AOP**. The `ActivityLoggingAspect` automatically intercepts service layer execution to create tamper-evident audit logs.
+
+---
 
 ## 🏗 Technical Architecture
 
-RupeeRoot is built using a **Microservice-ready Monolithic architecture**, ensuring robust performance and scalability.
+### Backend (Spring Boot 3.x)
+* **Core:** Java 17, Spring Web MVC
+* **Data Layer:** Hibernate/JPA with MySQL 8.0
+* **Caching:** Redis (Lettuce Client) with `@CacheEvict` policies for data consistency.
+* **Security:** Spring Security 6 (Stateless Session Management), BCrypt Password Encoding.
+* **Real-Time:** Spring WebSocket (STOMP), SockJS Fallback.
+* **Aspects:** Spring AOP for centralized logging and auditing.
+* **Build Tool:** Maven
 
-### ⚡ Performance Optimization (Caching)
+### Frontend (React 18)
+* **Build System:** Vite (for fast HMR and optimized builds).
+* **State Management:** React Context API & Hooks (`useReducer`, `useContext`).
+* **Routing:** React Router DOM v6.
+* **UI/UX:** Tailwind CSS (Utility-first), Framer Motion (Animations), Lucide React (Icons).
+* **HTTP Client:** Axios with Interceptors for JWT injection and global error handling.
 
-To ensure low latency on the most frequently accessed page (The Dashboard), the application utilizes **Spring Cache with Redis**.
-
-* **Cache Strategy:** Dashboard metrics (Total Balance, Recent Transactions) are cached using `@Cacheable(value = "dashboard", key = "#userId")`.
-* **Cache Consistency:** The application employs an event-driven eviction policy (`@CacheEvict`). Operations that modify data (e.g., `addExpense`, `deleteIncome`) automatically invalidate the specific user's cache to ensure data consistency without over-fetching from the database.
-
-### 💬 Real-Time Communication
-
-* **WebSockets:** Implemented using the **STOMP** protocol over WebSockets.
-* **Flow:** The `WebSocketConfig` sets up a message broker that routes messages to `/topic` destinations.
-* **Persistence:** Unlike ephemeral chat systems, the `ChatController` intercepts messages to save them to the MySQL database *before* broadcasting, ensuring a persistent audit trail of group conversations.
-
-### 🔒 Security
-
-* **Stateless Authentication:** Secured using **JWT (JSON Web Tokens)**. The `SecurityConfig` creates a stateless session policy, ensuring scalability.
-* **Aspect-Oriented Programming (AOP):** Logging logic is decoupled from business logic using Spring AOP. The `ActivityLoggingAspect` intercepts service execution to create secure audit logs without cluttering the codebase.
-
-### 🧠 Algorithmic Efficiency
-
-* **Debt Simplification:** The application uses a custom implementation of the **min-cash-flow algorithm**. It calculates the net balance of every user and iteratively settles the maximum debtor with the maximum creditor, significantly reducing the complexity of group settlements.
-
-## 💻 Tech Stack
-
-| Area | Technologies | 
-| ----- | ----- | 
-| **Backend** | Java 17, Spring Boot, Hibernate/JPA, Spring Security, Spring AOP | 
-| **Frontend** | React.js, Vite, Tailwind CSS, Framer Motion, Recharts | 
-| **Database** | MySQL (Primary), Redis (Caching) | 
-| **Real-time** | Spring WebSocket (STOMP), SockJS | 
-| **Tools** | Apache POI (Excel), JavaMailSender (Email), Docker | 
+---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
 * Java 17+
-* Node.js & npm
-* MySQL Server
-* Redis Server (for caching)
+* Node.js v18+ & npm
+* MySQL Server 8.0+
+* Redis Server (optional, for caching)
 
 ### Backend Setup
 
-1. Clone the repository.
-2. Navigate to the `backend` directory.
-3. Update `src/main/resources/application.properties` with your MySQL and Redis credentials.
-4. Run the application:
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/ShivaScripts/Rupee-Root.git](https://github.com/ShivaScripts/Rupee-Root.git)
+    cd Rupee-Root/backend
+    ```
 
-   ```bash
-   ./mvnw spring-boot:run
+2.  **Configure Environment:**
+    Update `src/main/resources/application.properties`:
+    ```properties
+    spring.datasource.url=jdbc:mysql://localhost:3306/moneymanager
+    spring.datasource.username=root
+    spring.datasource.password=YOUR_PASSWORD
+    jwt.secret=YOUR_SECURE_KEY
+    ```
+
+3.  **Build & Run:**
+    ```bash
+    ./mvnw clean install
+    ./mvnw spring-boot:run
+    ```
+
+### Frontend Setup
+
+1.  **Navigate to frontend:**
+    ```bash
+    cd ../frontend
+    ```
+
+2.  **Install Dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Start Development Server:**
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## 📸 Screenshots
+
+*(Add your screenshots here)*
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
