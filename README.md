@@ -42,43 +42,6 @@
 
 ---
 
-## 🏗 Tech Stack
-
-**Backend:** Java 17, Spring Boot 3.x, Spring Security 6, Hibernate/JPA, MySQL 8, Redis (Lettuce), Maven
-**Frontend:** React 18 (Vite), Tailwind CSS, Framer Motion, Lucide React, React Router v6, Axios
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-* Java 17+
-* Node.js v18+ & npm
-* MySQL 8.0+
-* Redis (optional)
-
-### Backend
-
-```bash
-git clone https://github.com/ShivaScripts/Rupee-Root.git
-cd Rupee-Root/backend
-
-# Update src/main/resources/application.properties
-# then build & run
-./mvnw clean install
-./mvnw spring-boot:run
-```
-
-### Frontend
-
-```bash
-cd ../frontend
-npm install
-npm run dev
-```
-
----
 ## 📸 Screenshots
 
 ### Dashboard
@@ -118,7 +81,7 @@ npm run dev
 
 ---
 
-### Real-Time Collaboration
+### Real-Time Collaboration using Websockets
 
 <table>
 <tr>
@@ -174,6 +137,44 @@ npm run dev
 </tr>
 </table>
 
+---
+
+
+## 🏗 Tech Stack
+
+**Backend:** Java 17, Spring Boot 3.x, Spring Security 6, Hibernate/JPA, MySQL 8, Redis (Lettuce), Maven
+**Frontend:** React 18 (Vite), Tailwind CSS, Framer Motion, Lucide React, React Router v6, Axios
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* Java 17+
+* Node.js v18+ & npm
+* MySQL 8.0+
+* Redis (optional)
+
+### Backend
+
+```bash
+git clone https://github.com/ShivaScripts/Rupee-Root.git
+cd Rupee-Root/backend
+
+# Update src/main/resources/application.properties
+# then build & run
+./mvnw clean install
+./mvnw spring-boot:run
+```
+
+### Frontend
+
+```bash
+cd ../frontend
+npm install
+npm run dev
+```
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
