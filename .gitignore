@@ -1,0 +1,16 @@
+# Mac system files
+.DS_Store
+
+# Frontend (React/Node)
+node_modules/
+dist/
+build/
+.env
+.env.local
+
+# Backend (Java/Maven)
+target/
+*.class
+.idea/
+*.iml
+.vscode/

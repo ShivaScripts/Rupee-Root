@@ -1,0 +1,189 @@
+.
+├── Dockerfile
+├── HELP.md
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+├── project-tree.txt
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── in
+│   │   │       └── shivam
+│   │   │           └── rupeeroot
+│   │   │               ├── MoneymanagerApplication.java
+│   │   │               ├── annotation
+│   │   │               │   └── LogActivity.java
+│   │   │               ├── aspect
+│   │   │               │   └── ActivityLoggingAspect.java
+│   │   │               ├── config
+│   │   │               │   ├── SecurityConfig.java
+│   │   │               │   └── WebSocketConfig.java
+│   │   │               ├── controller
+│   │   │               │   ├── ActivityLogController.java
+│   │   │               │   ├── CategoryController.java
+│   │   │               │   ├── ChatController.java
+│   │   │               │   ├── DashboardController.java
+│   │   │               │   ├── EmailController.java
+│   │   │               │   ├── ExcelController.java
+│   │   │               │   ├── ExpenseController.java
+│   │   │               │   ├── FilterController.java
+│   │   │               │   ├── GroupController.java
+│   │   │               │   ├── HomeController.java
+│   │   │               │   ├── IncomeController.java
+│   │   │               │   └── ProfileController.java
+│   │   │               ├── dto
+│   │   │               │   ├── AuthDTO.java
+│   │   │               │   ├── CategoryDTO.java
+│   │   │               │   ├── ChatMessageDTO.java
+│   │   │               │   ├── DebtSettlementDTO.java
+│   │   │               │   ├── ExpenseDTO.java
+│   │   │               │   ├── FilterDTO.java
+│   │   │               │   ├── IncomeDTO.java
+│   │   │               │   ├── ProfileDTO.java
+│   │   │               │   └── RecentTransactionDTO.java
+│   │   │               ├── entity
+│   │   │               │   ├── ActivityLog.java
+│   │   │               │   ├── CategoryEntity.java
+│   │   │               │   ├── ChatMessage.java
+│   │   │               │   ├── ExpenseEntity.java
+│   │   │               │   ├── IncomeEntity.java
+│   │   │               │   └── ProfileEntity.java
+│   │   │               ├── repository
+│   │   │               │   ├── ActivityLogRepository.java
+│   │   │               │   ├── CategoryRepository.java
+│   │   │               │   ├── ChatMessageRepository.java
+│   │   │               │   ├── ExpenseRepository.java
+│   │   │               │   ├── IncomeRepository.java
+│   │   │               │   └── ProfileRepository.java
+│   │   │               ├── security
+│   │   │               │   └── JwtRequestFilter.java
+│   │   │               ├── service
+│   │   │               │   ├── AppUserDetailsService.java
+│   │   │               │   ├── CategoryService.java
+│   │   │               │   ├── ChatService.java
+│   │   │               │   ├── DashboardService.java
+│   │   │               │   ├── DebtSimplificationService.java
+│   │   │               │   ├── EmailService.java
+│   │   │               │   ├── ExcelService.java
+│   │   │               │   ├── ExpenseService.java
+│   │   │               │   ├── GroupService.java
+│   │   │               │   ├── IncomeService.java
+│   │   │               │   ├── NotificationService.java
+│   │   │               │   └── ProfileService.java
+│   │   │               └── util
+│   │   │                   └── JwtUtil.java
+│   │   └── resources
+│   │       ├── application-prod.properties
+│   │       ├── application.properties
+│   │       ├── static
+│   │       └── templates
+│   └── test
+│       └── java
+│           └── in
+│               └── shivam
+│                   └── rupeeroot
+└── target
+    ├── classes
+    │   ├── application-prod.properties
+    │   ├── application.properties
+    │   └── in
+    │       └── shivam
+    │           └── rupeeroot
+    │               ├── MoneymanagerApplication.class
+    │               ├── annotation
+    │               │   └── LogActivity.class
+    │               ├── aspect
+    │               │   └── ActivityLoggingAspect.class
+    │               ├── config
+    │               │   ├── SecurityConfig.class
+    │               │   └── WebSocketConfig.class
+    │               ├── controller
+    │               │   ├── ActivityLogController.class
+    │               │   ├── CategoryController.class
+    │               │   ├── ChatController.class
+    │               │   ├── DashboardController.class
+    │               │   ├── EmailController.class
+    │               │   ├── ExcelController.class
+    │               │   ├── ExpenseController.class
+    │               │   ├── FilterController.class
+    │               │   ├── GroupController.class
+    │               │   ├── HomeController.class
+    │               │   ├── IncomeController.class
+    │               │   └── ProfileController.class
+    │               ├── dto
+    │               │   ├── AuthDTO$AuthDTOBuilder.class
+    │               │   ├── AuthDTO.class
+    │               │   ├── CategoryDTO$CategoryDTOBuilder.class
+    │               │   ├── CategoryDTO.class
+    │               │   ├── ChatMessageDTO$ChatMessageDTOBuilder.class
+    │               │   ├── ChatMessageDTO.class
+    │               │   ├── DebtSettlementDTO$DebtSettlementDTOBuilder.class
+    │               │   ├── DebtSettlementDTO.class
+    │               │   ├── ExpenseDTO$ExpenseDTOBuilder.class
+    │               │   ├── ExpenseDTO.class
+    │               │   ├── FilterDTO.class
+    │               │   ├── IncomeDTO$IncomeDTOBuilder.class
+    │               │   ├── IncomeDTO.class
+    │               │   ├── ProfileDTO$ProfileDTOBuilder.class
+    │               │   ├── ProfileDTO.class
+    │               │   ├── RecentTransactionDTO$RecentTransactionDTOBuilder.class
+    │               │   └── RecentTransactionDTO.class
+    │               ├── entity
+    │               │   ├── ActivityLog$ActivityLogBuilder.class
+    │               │   ├── ActivityLog.class
+    │               │   ├── CategoryEntity$CategoryEntityBuilder.class
+    │               │   ├── CategoryEntity.class
+    │               │   ├── ChatMessage$ChatMessageBuilder.class
+    │               │   ├── ChatMessage.class
+    │               │   ├── ExpenseEntity$ExpenseEntityBuilder.class
+    │               │   ├── ExpenseEntity.class
+    │               │   ├── IncomeEntity$IncomeEntityBuilder.class
+    │               │   ├── IncomeEntity.class
+    │               │   ├── ProfileEntity$ProfileEntityBuilder.class
+    │               │   └── ProfileEntity.class
+    │               ├── repository
+    │               │   ├── ActivityLogRepository.class
+    │               │   ├── CategoryRepository.class
+    │               │   ├── ChatMessageRepository.class
+    │               │   ├── ExpenseRepository.class
+    │               │   ├── IncomeRepository.class
+    │               │   └── ProfileRepository.class
+    │               ├── security
+    │               │   └── JwtRequestFilter.class
+    │               ├── service
+    │               │   ├── AppUserDetailsService.class
+    │               │   ├── CategoryService.class
+    │               │   ├── ChatService.class
+    │               │   ├── DashboardService.class
+    │               │   ├── DebtSimplificationService.class
+    │               │   ├── EmailService.class
+    │               │   ├── ExcelService.class
+    │               │   ├── ExpenseService.class
+    │               │   ├── GroupService.class
+    │               │   ├── IncomeService.class
+    │               │   ├── NotificationService.class
+    │               │   └── ProfileService.class
+    │               └── util
+    │                   └── JwtUtil.class
+    ├── generated-sources
+    │   └── annotations
+    ├── generated-test-sources
+    │   └── test-annotations
+    ├── maven-archiver
+    │   └── pom.properties
+    ├── maven-status
+    │   └── maven-compiler-plugin
+    │       ├── compile
+    │       │   └── default-compile
+    │       │       ├── createdFiles.lst
+    │       │       └── inputFiles.lst
+    │       └── testCompile
+    │           └── default-testCompile
+    │               ├── createdFiles.lst
+    │               └── inputFiles.lst
+    ├── rupeeroot-0.0.1-SNAPSHOT.jar
+    ├── rupeeroot-0.0.1-SNAPSHOT.jar.original
+    └── test-classes
+
+52 directories, 135 files
