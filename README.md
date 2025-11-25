@@ -79,122 +79,100 @@ npm run dev
 ```
 
 ---
-
 ## 📸 Screenshots
 
-> **Notes:**
->
-> * This gallery uses a clean table-based grid so images maintain uniform size and alignment on GitHub.
-> * Each thumbnail is clickable to open the full-size image in a new tab.
-> * Filenames used in repo: `docs/screenshots/dashboard.png`, `dashboard1.png`, `dashboard2.png`, `settlement.png`, `recentactivity.png`, `chat.png`, `groupinvitations.png`, `invitationmail.png`, `whatif.png`, `excel.png`.
-> * Below I’ve also added two local uploads (these are included for preview inside the canvas):
+### Dashboard
 
-**Local preview images (uploaded):**
+<table>
+<tr>
+<td>
 
-![Local Screenshot 1](/mnt/data/Screenshot 2025-11-25 at 10.14.32 PM.png)
+**Dashboard — Overview**  
+<img src="docs/screenshots/dashboard.png" width="420" style="border:1px solid #ccc;" />
 
-![Local Screenshot 2](/mnt/data/Screenshot 2025-11-25 at 10.14.52 PM.png)
-
-<table align="center" width="100%" cellpadding="16">
-  <tr>
-    <td align="center" width="33%">
-      <a href="docs/screenshots/dashboard.png" target="_blank" rel="noopener noreferrer">
-        <img src="docs/screenshots/dashboard.png" alt="Dashboard — Overview" width="280"
-             style="border:1px solid #ddd; border-radius:10px; padding:6px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.06);" />
-      </a>
-      <div><sub>Dashboard — Overview</sub></div>
-    </td>
-
-```
-<td align="center" width="33%">
-  <a href="docs/screenshots/dashboard1.png" target="_blank" rel="noopener noreferrer">
-    <img src="docs/screenshots/dashboard1.png" alt="Dashboard — Charts" width="280"
-         style="border:1px solid #ddd; border-radius:10px; padding:6px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.06);" />
-  </a>
-  <div><sub>Dashboard — Charts</sub></div>
 </td>
+<td>
 
-<td align="center" width="33%">
-  <a href="docs/screenshots/dashboard2.png" target="_blank" rel="noopener noreferrer">
-    <img src="docs/screenshots/dashboard2.png" alt="Dashboard — Transactions" width="280"
-         style="border:1px solid #ddd; border-radius:10px; padding:6px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.06);" />
-  </a>
-  <div><sub>Dashboard — Transactions</sub></div>
+**Dashboard — Charts**  
+<img src="docs/screenshots/dashboard1.png" width="420" style="border:1px solid #ccc;" />
+
 </td>
-```
+</tr>
 
-  </tr>
+<tr>
+<td>
 
-  <tr>
-    <td align="center" width="33%">
-      <a href="docs/screenshots/settlement.png" target="_blank" rel="noopener noreferrer">
-        <img src="docs/screenshots/settlement.png" alt="Debt Settlement" width="280"
-             style="border:1px solid #f1f0ea; border-radius:10px; padding:6px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.04);" />
-      </a>
-      <div><sub>Debt Settlement</sub></div>
-    </td>
+**Dashboard — Transactions**  
+<img src="docs/screenshots/dashboard2.png" width="420" style="border:1px solid #ccc;" />
 
-```
-<td align="center" width="33%">
-  <a href="docs/screenshots/recentactivity.png" target="_blank" rel="noopener noreferrer">
-    <img src="docs/screenshots/recentactivity.png" alt="Recent Activity" width="280"
-         style="border:1px solid #eef7f5; border-radius:10px; padding:6px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.04);" />
-  </a>
-  <div><sub>Recent Activity</sub></div>
 </td>
+<td>
 
-<td align="center" width="33%">
-  <a href="docs/screenshots/chat.png" target="_blank" rel="noopener noreferrer">
-    <img src="docs/screenshots/chat.png" alt="Group Chat" width="280"
-         style="border:1px solid #eef3ff; border-radius:10px; padding:6px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.04);" />
-  </a>
-  <div><sub>Group Chat</sub></div>
+**Debt Settlement**  
+<img src="docs/screenshots/settlement.png" width="420" style="border:1px solid #ccc;" />
+
 </td>
-```
-
-  </tr>
-
-  <tr>
-    <td align="center" width="33%">
-      <a href="docs/screenshots/groupinvitations.png" target="_blank" rel="noopener noreferrer">
-        <img src="docs/screenshots/groupinvitations.png" alt="Group Invitations" width="280"
-             style="border:1px solid #fff4e6; border-radius:10px; padding:6px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.04);" />
-      </a>
-      <div><sub>Group Invitations</sub></div>
-    </td>
-
-```
-<td align="center" width="33%">
-  <a href="docs/screenshots/invitationmail.png" target="_blank" rel="noopener noreferrer">
-    <img src="docs/screenshots/invitationmail.png" alt="Invitation e-mail" width="280"
-         style="border:1px solid #f6f0ff; border-radius:10px; padding:6px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.04);" />
-  </a>
-  <div><sub>Invitation e-mail</sub></div>
-</td>
-
-<td align="center" width="33%">
-  <a href="docs/screenshots/whatif.png" target="_blank" rel="noopener noreferrer">
-    <img src="docs/screenshots/whatif.png" alt="What-If Simulator" width="280"
-         style="border:1px solid #eef9f6; border-radius:10px; padding:6px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.04);" />
-  </a>
-  <div><sub>What-If Simulator</sub></div>
-</td>
-```
-
-  </tr>
-
-  <tr>
-    <td colspan="3" align="center" style="padding-top:18px;">
-      <a href="docs/screenshots/excel.png" target="_blank" rel="noopener noreferrer">
-        <img src="docs/screenshots/excel.png" alt="Excel Export (.xlsx)" width="640"
-             style="border:1px solid #f3f7ff; border-radius:10px; padding:6px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.04);" />
-      </a>
-      <div><sub>Excel Export (.xlsx) — full preview</sub></div>
-    </td>
-  </tr>
+</tr>
 </table>
 
+
 ---
+
+### Real-Time Collaboration
+
+<table>
+<tr>
+<td>
+
+**Recent Activity**  
+<img src="docs/screenshots/recentactivity.png" width="420" style="border:1px solid #ccc;" />
+
+</td>
+<td>
+
+**Group Chat**  
+<img src="docs/screenshots/chat.png" width="420" style="border:1px solid #ccc;" />
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+**Group Invitations**  
+<img src="docs/screenshots/groupinvitations.png" width="420" style="border:1px solid #ccc;" />
+
+</td>
+<td>
+
+**Invitation Email**  
+<img src="docs/screenshots/invitationmail.png" width="420" style="border:1px solid #ccc;" />
+
+</td>
+</tr>
+</table>
+
+
+---
+
+### Simulation & Export
+
+<table>
+<tr>
+<td>
+
+**What-If Simulator**  
+<img src="docs/screenshots/whatif.png" width="420" style="border:1px solid #ccc;" />
+
+</td>
+<td>
+
+**Excel Export (.xlsx)**  
+<img src="docs/screenshots/excel.png" width="420" style="border:1px solid #ccc;" />
+
+</td>
+</tr>
+</table>
 
 ## 📄 License
 
