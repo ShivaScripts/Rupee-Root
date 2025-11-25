@@ -5,6 +5,7 @@
 ![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-blue?style=for-the-badge&logo=mysql)
 ![Redis](https://img.shields.io/badge/Redis-Cache-red?style=for-the-badge&logo=redis)
+![WebSockets](https://img.shields.io/badge/WebSockets-Real--Time-purple?style=for-the-badge&logo=socket.io)
 
 **RupeeRoot** is a comprehensive full-stack financial management suite designed to simplify personal wealth tracking, debt settlement, and financial planning. It combines enterprise-grade security with real-time collaboration tools, making it easier for individuals and groups to manage money together.
 
@@ -19,8 +20,9 @@
 
 ### 🤝 Collaboration & Social
 
+* **Real-Time Group Chat:** A fully integrated chat system powered by **WebSockets (STOMP)** allows group members to discuss expenses instantly. Messages are persisted in the database, ensuring history is never lost.
 * **Debt Settlement:** Simplify group debts using a **Greedy Algorithm** that minimizes the number of transactions required to settle dues among multiple people.
-* **Real-Time Group Chat:** Discuss expenses with your group members in real-time using integrated WebSockets (STOMP).
+* **Group Management:** Create and manage expense groups to track shared spending easily.
 
 ### 🛠 Advanced Tools
 
@@ -37,6 +39,12 @@ To ensure low latency on the most frequently accessed page (The Dashboard), the 
 
 * **Cache Strategy:** Dashboard metrics (Total Balance, Recent Transactions) are cached using `@Cacheable(value = "dashboard", key = "#userId")`.
 * **Cache Consistency:** The application employs an event-driven eviction policy (`@CacheEvict`). Operations that modify data (e.g., `addExpense`, `deleteIncome`) automatically invalidate the specific user's cache to ensure data consistency without over-fetching from the database.
+
+### 💬 Real-Time Communication
+
+* **WebSockets:** Implemented using the **STOMP** protocol over WebSockets.
+* **Flow:** The `WebSocketConfig` sets up a message broker that routes messages to `/topic` destinations.
+* **Persistence:** Unlike ephemeral chat systems, the `ChatController` intercepts messages to save them to the MySQL database *before* broadcasting, ensuring a persistent audit trail of group conversations.
 
 ### 🔒 Security
 
